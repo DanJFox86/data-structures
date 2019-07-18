@@ -16,12 +16,12 @@ var LinkedList = function() {
     let node = new Node(value);
     node.value = value;
     
-    if(!list.tail){
+    if (!list.tail) {
       
       list.tail = node;
       list.head = node;
     
-    }else{
+    } else {
       
       list.tail.next = node;
       list.tail = node;
@@ -41,11 +41,11 @@ var LinkedList = function() {
       - return var pop
     */
     
-    if(!list.head){
+    if (!list.head) {
       
-      return {}
+      return {};
     
-    }else{
+    } else {
       
       let pop = list.head.value;
       list.head = list.head.next;
@@ -63,22 +63,22 @@ var LinkedList = function() {
     */
     
     var move = function(node) {
-      if(node.value === target){
+      if (node.value === target) {
         return true;
         
-      }else{
+      } else {
         
-        if(node.next !== null){
-          return move(node.next)
-        }else{
+        if (node.next !== null) {
+          return move(node.next);
+        } else {
           return false;
         }
       }
-    }
+    };
     
-    if(!list.head){
+    if (!list.head) {
       return false;
-    }else{
+    } else {
       return move(list.head);
     }
     
@@ -95,3 +95,14 @@ var Node = function(value) {
 
   return node;
 };
+
+
+
+
+
+/*
+  Time Complexity:
+  - Add: O(1)
+  - Remove: O(1)
+  - Contains: O(n)
+*/
