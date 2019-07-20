@@ -31,6 +31,7 @@ Graph.prototype.contains = function(target) {
 Graph.prototype.removeNode = function(target) {
   
   for (var i = 0; i < this.storage.length; i++ ) {
+    this.removeEdge(target, this.storage[i].value);
     if (this.storage[i].value === target) {
       this.storage.splice(i, 1);
     }
@@ -40,7 +41,7 @@ Graph.prototype.removeNode = function(target) {
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
-    var from;
+  var from;
   var to;
   for (var i = 0; i < this.storage.length; i++ ) {
     if (this.storage[i].value === fromNode) {
@@ -59,7 +60,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
     }
   }
   
-  if (from && to) {
+  if (from || to) {
     return true;
   }
   return false;
@@ -126,7 +127,7 @@ Graph.prototype.forEachNode = function(cb) {
  
  addNode - O(1)
  contains - O(n)
- removeNode - O(n)
+ removeNode - O(n^4)
  hasEdge - O(n^2)
  addEdge - O(n^2)
  removeEdge - O(n^3)

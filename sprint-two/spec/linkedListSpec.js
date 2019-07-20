@@ -52,4 +52,9 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  
+  it('expect adding undefined to the linkedList and be able to find it', function() {
+    linkedList.addToTail();
+    expect(linkedList.contains()).to.equal(true);
+  });
 });

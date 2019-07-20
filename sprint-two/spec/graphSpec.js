@@ -68,4 +68,17 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+  
+  it('should not change anything when trying to remove a node that does not exist', function () {
+    graph.addNode(2);
+    graph.addNode(1);
+    graph.addNode(3);
+    graph.removeNode(5);
+    var arr = [];
+    graph.forEachNode(function(ele) {
+      arr.push(ele);
+    })
+    
+    expect(arr).to.eql([2,1,3])
+  })
 });

@@ -40,5 +40,9 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
+  
+  it('should return false when searching on an empty tree', function() {
+    expect(tree.contains(7)).to.equal(false);
+  });
 
 });
