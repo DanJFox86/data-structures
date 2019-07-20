@@ -50,6 +50,10 @@ HashTable.prototype.remove = function(k) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  - Insert: O(1)
+  - Retrieve: O(1)
+  - Remove: O(1)
+ 
  */
 
 
