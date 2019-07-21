@@ -28,6 +28,23 @@ var LimitedArray = function(limit) {
       callback(storage[i], i, storage);
     }
   };
+  
+  // limitedArray.rehashLarger = function(currentLimit) {
+  //   console.log("resizing limited array");
+  //   var newLimit = currentLimit * 2;
+  //   var newLimitedArray = LimitedArray(newLimit);
+  //   for (var i = 0; i < this.storage.length; i++) {
+  //     for (var j = 0; j < this.storage[i].length; j++) {
+  //       var index = getIndexBelowMaxForKey(this.storage[i][j][0], newLimit);
+  //       newLimitedArray.set(index, this.storage[i][j][1]);
+  //     }
+  //   }
+  //   return newLimitedArray;
+  // };
+  
+  // limitedArray.rehashSmaller = function(currentLimit) {
+  
+  // };
 
   var checkLimit = function(index) {
     if (typeof index !== 'number') {

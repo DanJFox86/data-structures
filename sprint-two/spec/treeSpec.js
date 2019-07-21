@@ -5,10 +5,12 @@ describe('tree', function() {
     tree = Tree();
   });
 
-  it('should have methods named "addChild" and "contains", and a property named "value"', function() {
+  it('should have methods named "addChild", "removeFromParent", and "contains", and properties named "value" and "parent"', function() {
     expect(tree.addChild).to.be.a('function');
     expect(tree.contains).to.be.a('function');
+    expect(tree.removeFromParent).to.be.a('function');
     expect(tree.hasOwnProperty('value')).to.equal(true);
+    expect(tree.hasOwnProperty('parent')).to.equal(true);
   });
 
   it('should add children to the tree', function() {
@@ -43,6 +45,21 @@ describe('tree', function() {
   
   it('should return false when searching on an empty tree', function() {
     expect(tree.contains(7)).to.equal(false);
+  });
+  
+  
+  it('should have a parent when adding another child', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
+  });
+  
+  
+  it('should dissconnect both parent and child', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    tree.children[0].children[0].removeFromParent();
+    expect(tree.children[0].children.length === 0).to.equal(true);
   });
 
 });

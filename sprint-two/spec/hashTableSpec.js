@@ -48,29 +48,29 @@ describe('hashTable', function() {
   });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
-  it ('should double in size when needed', function() {
-    _.each(people, function(person) {
-      var firstName = person[0];
-      var lastName = person[1];
-      hashTable.insert(firstName, lastName);
-      expect(hashTable.retrieve(firstName)).to.equal(lastName);
-    });
-    expect(hashTable._limit).to.equal(16);
-  });
+  // it ('should double in size when needed', function() {
+  //   _.each(people, function(person) {
+  //     var firstName = person[0];
+  //     var lastName = person[1];
+  //     hashTable.insert(firstName, lastName);
+  //     expect(hashTable.retrieve(firstName)).to.equal(lastName);
+  //   });
+  //   expect(hashTable._limit).to.equal(16);
+  // });
 
-  it ('should halve in size when needed', function() {
-    _.each(people, function(person) {
-      var firstName = person[0];
-      var lastName = person[1];
-      hashTable.insert(firstName, lastName);
-      expect(hashTable.retrieve(firstName)).to.equal(lastName);
-    });
-    expect(hashTable._limit).to.equal(16);
-    hashTable.remove('George');
-    hashTable.remove('Dr.');
-    hashTable.remove('Steven');
-    hashTable.remove('John');
-    hashTable.remove('Mr.');
-    expect(hashTable._limit).to.equal(8);
-  });
+  // it ('should halve in size when needed', function() {
+  //   _.each(people, function(person) {
+  //     var firstName = person[0];
+  //     var lastName = person[1];
+  //     hashTable.insert(firstName, lastName);
+  //     expect(hashTable.retrieve(firstName)).to.equal(lastName);
+  //   });
+  //   expect(hashTable._limit).to.equal(16);
+  //   hashTable.remove('George');
+  //   hashTable.remove('Dr.');
+  //   hashTable.remove('Steven');
+  //   hashTable.remove('John');
+  //   hashTable.remove('Mr.');
+  //   expect(hashTable._limit).to.equal(8);
+  // });
 });

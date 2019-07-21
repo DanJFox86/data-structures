@@ -2,6 +2,7 @@
 
 var HashTable = function() {
   this._limit = 8;
+  this._occupied = 0;
   this._storage = LimitedArray(this._limit);
 };
 
@@ -22,7 +23,18 @@ HashTable.prototype.insert = function(k, v) {
     
   } else {
     this._storage[index] = [[k,v]];
+    this._occupied++;
+    // if (this._occupied > this._limit * .75) {
+    //   console.log("resizing array");
+    //   this._storage = this._storage.rehashLarger(this._limit);
+    //   this._limit *= 2;
+    // }
+    // if (this._occupied < this._limit * .25) {
+    //   this._storage = this._storage.rehashSmaller(this._limit);
+    //   this._limit /= 2;
+    // }
   }
+  console.log(JSON.stringify(this._storage));
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -47,6 +59,14 @@ HashTable.prototype.remove = function(k) {
 };
 
 
+
+/*
+
+To prevent excessive collisions, make your hashTable double in size as soon as 75 percent of the spaces have been filled
+
+To save space, make sure the hashTable halves in size when space usage falls below 25 percent
+
+*/
 
 /*
  * Complexity: What is the time complexity of the above functions?

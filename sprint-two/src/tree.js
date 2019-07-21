@@ -5,7 +5,7 @@ var Tree = function(value) {
   // your code here
   extend(newTree, treeMethods);
   newTree.children = []; // fix me
-
+  newTree.parent = null;
   return newTree;
 };
 
@@ -23,6 +23,7 @@ var treeMethods = {};
 treeMethods.addChild = function(value) {
   
   var child = new Tree(value);
+  child.parent = this;
   this.children.push(child);
   
 };
@@ -43,6 +44,27 @@ treeMethods.contains = function(target) {
 
 };
 
+
+treeMethods.removeFromParent = function () {
+  
+  for(var i = 0; i < this.parent.children.length; i++) {
+    if (this.parent.children[i] === this) {
+      this.parent.children.splice(i, 1);
+    }
+  }
+  for(var i = 0; i < this.children.length; i++) {
+    if (this.children[i] === this.parent) {
+      this.children.splice(i, 1);
+    }
+  }
+}
+
+/*
+
+ A .parent property, which refers to the parent node or null when there is no node
+ A .removeFromParent() method, which disassociates the tree with its parent (in both directions)
+
+*/
 
 
 /*
